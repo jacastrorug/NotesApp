@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var note = Note(title: "Testing title")
+    
     var body: some View {
-        Text("Hello, World!")
+        Text("\(note.title) - \(note.creationDate)")
             .padding()
     }
 }
