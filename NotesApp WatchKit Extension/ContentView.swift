@@ -13,8 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            NavigationLink("Add Note", destination: AddNote())
-            NavigationLink("List Notes", destination: ListNotes())
+            NavigationLink("Add Note ＋", destination: AddNote())
+                .foregroundColor(Color("NoteColor"))
+            NavigationLink("List Notes ䷉", destination: ListNotes())
         }.navigationTitle("Notes APP")
     }
 }
