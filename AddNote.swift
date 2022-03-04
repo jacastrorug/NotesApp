@@ -12,6 +12,8 @@ struct AddNote: View {
     @State private var notes = [Note]()
     @State private var name: String = ""
     
+    @Environment(\.presentationMode) var presentation
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -23,10 +25,14 @@ struct AddNote: View {
                     
                     let note = Note(title: name)
                     notes.append(note)
+                    Tools.shared.save(notes: notes)
                     name = ""
-                }.foregroundColor(.yellow)
+                    presentation.wrappedValue.dismiss() // Navigate to content view
+                }.foregroundColor(Color("NoteColor"))
             }
-        }
+        }.onAppear(perform: {
+            self.notes = Tools.shared.load()
+        })
     }
 }
 

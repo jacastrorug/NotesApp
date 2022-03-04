@@ -12,9 +12,20 @@ struct DetailNote: View {
     
     var body: some View {
         VStack {
-            Text("\(note.title)")
-                .font(.system(size: 20))
-                .foregroundColor(.white)
+            VStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 6)
+                        .frame(maxWidth: .infinity, maxHeight: 40, alignment: .top)
+                    .foregroundColor(Color("NoteColor"))
+                    Text("\(note.title)")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .background(RoundedRectangle(cornerRadius: 10)
+                            .stroke(.gray))
+            .padding([.top, .bottom, .leading, .trailing], 5)
             
             Spacer()
             

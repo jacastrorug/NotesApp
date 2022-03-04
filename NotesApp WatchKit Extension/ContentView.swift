@@ -12,8 +12,10 @@ struct ContentView: View {
     var note = Note(title: "Testing title")
     
     var body: some View {
-        Text("\(note.title) - \(note.creationDate)")
-            .padding()
+        VStack {
+            NavigationLink("Add Note", destination: AddNote())
+            NavigationLink("List Notes", destination: ListNotes())
+        }.navigationTitle("Notes APP")
     }
 }
 
